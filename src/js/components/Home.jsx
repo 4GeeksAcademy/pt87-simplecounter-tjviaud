@@ -1,33 +1,24 @@
-import React from "react";
-import SecondsCounter from "./SecondsCounter";
-import ReactDOM from 'react-dom';
-import Card from './Card.jsx'
-
-const root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(<App />);
+import React, { useState, useEffect } from "react";
+import SecondsCounter from "../components/SecondsCounter.jsx";
 
 
-function SecondsCounter() {
-	return (
-		<>
-		  <SecondsCounter />
-		</>
-	)
-	function Card (props){
-    
-		return (
-        <div className="card">
-            <img className="card-img-top" src={props.imageUrl} alt="Card image cap" />
-            <div className="card-body">
-                <h5 className="card-title">{props.title}</h5>
-                <p className="card-text">Some quick example text to build on the card title and fill the card's content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
-            </div>
+
+
+function Home () {
+    const [seconds, setSeconds]=useState(0);
+    useEffect(()=>{
+        const interval=setInterval(()=>
+        setSeconds((prev)=>prev+1),1000);
+        return () => clearInterval (interval);
+    }, []);
+    return (
+        <div className="container d-flex justify-content-center align-items-center vh-100">
+            <SecondsCounter seconds={seconds}/>
         </div>
-    );
+    ) 
 }
-}
+
 
    
 
-export default SecondsCounter
+export default Home;
