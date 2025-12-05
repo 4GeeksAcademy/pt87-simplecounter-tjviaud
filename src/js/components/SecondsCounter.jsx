@@ -20,7 +20,7 @@ function SecondsCounter({ seconds }) {
                 minWidth: "50px",
                 textAlign: "center"
             }}>
-                <i className="fa-solid fa-stopwatch fa-beat"></i>
+            <i className="fa-solid fa-stopwatch fa-beat"></i>
             </div>
             <div style={{
                 background: "#444",
